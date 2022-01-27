@@ -1,0 +1,9 @@
+{
+  "name": "signinup",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    }
+  },
+  "type": "angular"
+}

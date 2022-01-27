@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Sign In</ion-title>
+  </ion-toolbar>
+</ion-header>
+<br />
+
+<ion-content style="width: 40%">
+  <form [formGroup]="signinForm" (ngSubmit)="onSigninFormSubmit()">
+    <ion-item lines="full">
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input type="text" formControlName="email" required></ion-input>
+    </ion-item>
+    <div *ngFor="let error of errorMessages.email">
+      <ng-container
+        *ngIf="email.hasError(error.type) && (email.dirty || email.touched)"
+      >
+        <small>{{error.message}}</small>
+      </ng-container>
+    </div>
+    <br />
+
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input
+        type="password"
+        formControlName="password"
+        required
+      ></ion-input>
+    </ion-item>
+    <div *ngFor="let error of errorMessages.password">
+      <ng-container
+        *ngIf="password.hasError(error.type) && (password.dirty || password.touched)"
+      >
+        <small>{{error.message}}</small>
+      </ng-container>
+    </div>
+    <br />
+
+    <ion-button
+      type="submit"
+      color="danger"
+      expand="block"
+      [disabled]="!signinForm.valid"
+      >Sign In</ion-button
+    >
+  </form>
+
+  <br />
+  <br />
+
+  <span>Don't have an account? </span>
+  <a [routerLink]="['/signup']">Sign Up</a>
+</ion-content>
