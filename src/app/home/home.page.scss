@@ -25,3 +25,23 @@
 #container a {
   text-decoration: none;
 }
+
+ion-content {
+  width: 80%;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 460px) {
+  ion-content {
+    width: 55%;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  ion-content {
+    width: 35%;
+  }
+}
